@@ -1,0 +1,54 @@
+{
+	"name": "vscode-uriencode",
+	"displayName": "vscode-uriencode",
+	"description": "URI/URL encode/decode the current selections.",
+	"version": "0.0.1",
+	"publisher": "diegofn",
+    "author": "Diego Fernando Nieto",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+		"url": "https://github.com/diegofn/vscode-uriencode.git"
+    },
+    "icon": "icon.png",
+	"engines": {
+		"vscode": "^0.10.6"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.uriEncode",
+        "onCommand:extension.uriDecode"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"commands": [{
+			"command": "extension.uriEncode",
+			"title": "Uri Encode"
+		}, {
+            "command": "extension.uriDecode",
+            "title": "Uri Decode"
+        }],
+        "keybindings": [{
+            "command": "extension.uriEncode",
+            "key": "ctrl+u ctrl+e",
+            "mac": "cmd+u cmd+e",
+            "when": "editorTextFocus"
+        }, { 
+            "command": "extension.uriDecode",
+            "key": "ctrl+u ctrl+d",
+            "mac": "cmd+u cmd+d",
+            "when": "editorTextFocus"
+        } ]
+	},
+	"scripts": {
+		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"devDependencies": {
+		"typescript": "^1.7.5",
+		"vscode": "^0.11.0"
+	}
+}
